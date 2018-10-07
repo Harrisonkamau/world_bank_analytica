@@ -6,3 +6,5 @@ venv
 
 # cached files
 __pycache__
+
+.vscode
