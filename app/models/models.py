@@ -44,5 +44,13 @@ class User(UserMixin, db.Model):
         return '<User %r>' % self.username
 
 
-class Catalog(object):
-    pass
+class Catalog(db.Model):
+    'name', 'acronym', 'description', 'lastrevisiondate', 'contactdetails', 'popularity', 'coverage'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True, index=True)
+    acronym = db.Column(db.String(16), unique=True, index=True)
+    description = db.Column(db.String(254), unique=True, index=True)
+    lastrevisiondate = db.Column(db.String(16), unique=True, index=True)
+    contactdetails = db.Column(db.String(64), unique=True, index=True)
+    popularity = db.Column(db.String(16), unique=True, index=True)
+    coverage = db.Column(db.String(16), unique=True, index=True)

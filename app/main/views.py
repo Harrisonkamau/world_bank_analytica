@@ -6,12 +6,12 @@ import ast
 DATA_API_URL = 'http://api.worldbank.org/v2/datacatalog?format=json'
 
 from . import main
-from app.utils import metatype_filter, metatype_data
+from app.utils import metatype_filter, metatype_data, metatype_mapper
 
 @main.route('/')
 @login_required
 def index():
     data = requests.get(DATA_API_URL).text
     metatype = metatype_data(data)
-    filtered_data = metatype_filter(metatype)
+    filtered_data = metatype_mapper(metatype_filter(metatype))
     return render_template('base.html', data=filtered_data)

@@ -27,6 +27,45 @@ def metatype_filter(array):
     return new_list
 
 
+def metatype_mapper(array):
+    """
+    param: list
+    returns: refined list (remove 'id' and 'value')
+    For Example:
+    obj = [
+        {'id': 'name', 'value': 'World Development Indicators'},
+         {'id': 'acronym', 'value': 'WDI'},
+         {'id': 'popularity', 'value': '3765'},
+         {'id': 'coverage', 'value': '1960 - 2016'},
+        ]
+    returned_obj = {
+        'name': 'World Development Indicators',
+        'acronym': 'WDI',
+        'popularity': '3765'
+         }
+
+         obj = [
+             {
+        'name': 'World Development Indicators',
+        'acronym': 'WDI',
+        'popularity': '3765'
+         },
+         {
+        'name': 'World Development Indicators',
+        'acronym': 'WDI',
+        'popularity': '3765'
+         }
+         ]
+    """
+    final_list = []
+    allowed_length = len(ID_ENUMS)
+    for i in range(0, len(array), allowed_length):
+        new_dict = {}
+        for item in array[i:i+allowed_length]:
+            new_dict[item['id']] = item['value']
+        final_list.append(new_dict)
+    return final_list
+
 
 """
 HELPER FUNCTIONS
