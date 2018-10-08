@@ -3,6 +3,7 @@
 This project uses Python2
 
 Make sure you have `virtualenv` and `pip` installed on your PC
+Please note that `pip` should be `pip2` if you're running `python3` as the default on your PC.
 
 Create virtualenv:
 Navigate into the cloned folder of this repo and run:
@@ -20,4 +21,5 @@ Install application's dependencies:
 Run:
 `./setup.sh` then run: `flask run` to start the app
 
+Or run the server with:
 `python run.py server`

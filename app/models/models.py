@@ -45,7 +45,6 @@ class User(UserMixin, db.Model):
 
 
 class Catalog(db.Model):
-    'name', 'acronym', 'description', 'lastrevisiondate', 'contactdetails', 'popularity', 'coverage'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True, index=True)
     acronym = db.Column(db.String(16), unique=True, index=True)
