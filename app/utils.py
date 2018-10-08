@@ -9,8 +9,11 @@ ID_ENUMS = [ 'name', 'acronym', 'description', 'lastrevisiondate', 'contactdetai
 # Return 'metatype' lists from 'datacatalog'
 def metatype_data(obj):
     filtered_payload = _filter_payload(obj)
+    m_list = []
     for item in filtered_payload:
-        return _object_filter(item, 'metatype')
+        for item in _object_filter(item, 'metatype'):
+            m_list.append(item)
+    return m_list
 
 
 def metatype_filter(array):
